@@ -5,12 +5,12 @@ class QuizTest extends TestCase
 {
     public function test_1()
     {
-        $quiz = new Quizz();
+        $quiz = new Quiz();
         $this->assertSame('No title choosen', $quiz->getTitle());
     }
     public function test_2()
     {
-        $quiz = new Quizz('Quizz about PHP');
+        $quiz = new Quiz('Quizz about PHP');
         $this->assertSame('Quizz about PHP', $quiz->getTitle());
     }
 

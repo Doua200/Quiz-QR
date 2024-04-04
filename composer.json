@@ -2,7 +2,7 @@
     "name": "doua20/quiz-qr",
     "autoload": {
         "psr-4": {
-            "Doua20\\QuizQr\\": "src/model"
+            "app\\quiz\\model\\": "src/model"
         }
     },
     "authors": [
