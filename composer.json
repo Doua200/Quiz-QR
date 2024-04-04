@@ -1,0 +1,17 @@
+{
+    "name": "doua20/quiz-qr",
+    "autoload": {
+        "psr-4": {
+            "Doua20\\QuizQr\\": "src/model"
+        }
+    },
+    "authors": [
+        {
+            "name": "Doua20",
+            "email": "douakona@gmail.com"
+        }
+    ],
+    "require-dev": {
+        "phpunit/phpunit": "^11.0"
+    }
+}
