@@ -1,6 +1,7 @@
 <?php
 use PHPUnit\Framework\TestCase;
 use app\quiz\model\Quiz;
+
 class QuizTest extends TestCase
 {
     public function test_1()
