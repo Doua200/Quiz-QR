@@ -3,21 +3,30 @@ namespace app\quiz\model;
 
 class Question
 {
-private string $_title;
+private string $_text;
+private ReponseCollection $_reponses;
 
 
 
-public function __construct(string $title)
+public function __construct(string $text)
     {
-        $this->title = $title;
-       
+        $this->_text = $text;
+        $this->_reponses =  new ReponseCollection();
     }
 
     
-    public function getTitle(): string
+    public function getText(): string
     {
-        return $this->title;
+        return $this->_text;
     }
+public function getReponses(): ReponseCollection {
+
+    return $this->_reponses;
+}
+public function addReponse(Reponse $reponse)
+{
+    $this->_reponses[]=$reponse;
+}
 
 }
 
