@@ -5,13 +5,14 @@ class Question
 {
 private string $_text;
 private ReponseCollection $_reponses;
+private int $_id;
 
 
-
-public function __construct(string $text)
+public function __construct(string $text,int $id)
     {
         $this->_text = $text;
         $this->_reponses =  new ReponseCollection();
+        $this->_id = $id;
     }
 
     
