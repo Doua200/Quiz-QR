@@ -2,6 +2,9 @@
 declare (strict_types=1);
 require_once dirname(__DIR__) . "/vendor/autoload.php";
 use  app\quiz\model\Quiz;
+use  app\quiz\model\ReponseCollection;
+use  app\quiz\model\QuestionCollection;
+
 echo "SALUT";
 //var_dump ($_SERVER);
 //var_dump ($_GET);
@@ -50,3 +53,8 @@ catch (PDOException  $e) {
 }
 echo "YOLOO<br>";
 var_dump(Quiz::findById(1));
+var_dump(ReponseCollection::listById(1));
+var_dump(QuestionCollection::listById(1));
+
+Quiz::createDB(new Quiz('Un super quiz de MALADE OUF'));
+var_dump(Quiz::lister());

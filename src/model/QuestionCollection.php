@@ -72,12 +72,12 @@ class QuestionCollection implements \ArrayAccess, \Countable, \Iterator
         return isset($this->_values[$this->_position]);
     }
 
-    public static function listById (int $idQuizz) : \QuestionCollection {
-        $question = new \QuestionCollection();
+    public static function listById (int $idQuizz) : QuestionCollection {
+        $question = new QuestionCollection();
         $statement = Database::getInstance()-> getConnexion()->prepare("select * from Question where numQuiz=:numQuiz;");
         $statement->execute(['numQuiz'=>$idQuizz]);
         while ($row = $statement->fetch()) {
-            $question[] = new Question (id:$row['id'], title:$row['title']);
+            $question[] = new Question (id:$row['id'], text:$row['text']);
         }
         return $question;
     }

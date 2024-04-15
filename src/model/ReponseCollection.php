@@ -57,8 +57,8 @@ class ReponseCollection implements \Countable, \IteratorAggregate,\ArrayAccess
     }
 
 
-    public static function listById (int $idQuestion) : \ReponseCollection {
-        $reponse = new \ReponseCollection();
+    public static function listById (int $idQuestion) : ReponseCollection {
+        $reponse = new ReponseCollection();
         $statement = Database::getInstance()-> getConnexion()->prepare("select * from 
         Reponse where numQuestion=:numQuestion;");
         $statement->execute(['numQuestion'=>$idQuestion]);
@@ -67,4 +67,7 @@ class ReponseCollection implements \Countable, \IteratorAggregate,\ArrayAccess
         }
         return $reponse;
     }
+
+
+    
 }

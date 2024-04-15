@@ -45,7 +45,15 @@ public function __construct(string $title = 'No title choosen', int $id=0)
     {
         $this->_questions[]=$question;
     }
-
+    public static function lister () : \ArrayObject {
+        $liste = new \ArrayObject();
+        $statement = Database::getInstance()-> getConnexion()->prepare("select * from Quiz;");
+        $statement->execute();
+        while ($row = $statement->fetch()) {
+            $liste[] = new Quiz (id:$row['id'], title:$row['title']);
+        }
+        return $liste;
+    }
     public static function filter (string $texte) : \ArrayObject {
         $liste = new \ArrayObject();
         $statement = Database::getInstance()-> getConnexion()->prepare("select * from Quiz where title like : textSearched;");
@@ -65,4 +73,10 @@ public function __construct(string $title = 'No title choosen', int $id=0)
     return null ;
     }
 
+    public static function createDB (Quiz $quiz) {
+        $statement = Database::getInstance()->getConnexion()->prepare
+        ("INSERT INTO Quiz(title) values (:title);");
+        $statement->execute(['title'=>$quiz->getTitle()]); 
+    
+    }
    }
