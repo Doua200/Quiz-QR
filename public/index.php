@@ -1,11 +1,22 @@
 <?php
 declare (strict_types=1);
 require_once dirname(__DIR__) . "/vendor/autoload.php";
+
+use app\quiz\controller\ApiController;
 use  app\quiz\model\Quiz;
 use  app\quiz\model\ReponseCollection;
 use  app\quiz\model\QuestionCollection;
 
-echo "SALUT";
+$route = explode('/', $_SERVER['REQUEST_URI']);
+if (isset($route[1]) && $route[1] == 'api') 
+{
+    if (isset($route[2]) && $route[2] == 'quiz')
+    {
+        ApiController::quiz();
+    }
+    echo"<hr>";
+}
+
 //var_dump ($_SERVER);
 //var_dump ($_GET);
 // try
@@ -40,21 +51,22 @@ echo "SALUT";
 //         echo "- " . $response->getText() . "\n";
 //     }
 
+// // }
+
+// try
+// {
+//     $liste = Quiz::findById(1);
+//     var_dump($liste);
 // }
 
-try
-{
-    $liste = Quiz::findById(1);
-    var_dump($liste);
-}
+// catch (PDOException  $e) {
+//         echo "error:" .$e -> getMessage();
+// }
+// echo "YOLOO<br>";
+// var_dump(Quiz::findById(1));
+// var_dump(ReponseCollection::listById(1));
+// var_dump(QuestionCollection::listById(1));
 
-catch (PDOException  $e) {
-        echo "error:" .$e -> getMessage();
-}
-echo "YOLOO<br>";
-var_dump(Quiz::findById(1));
-var_dump(ReponseCollection::listById(1));
-var_dump(QuestionCollection::listById(1));
+// Quiz::createDB(new Quiz('Un super quiz de MALADE OUF'));
+// var_dump(Quiz::lister());
 
-Quiz::createDB(new Quiz('Un super quiz de MALADE OUF'));
-var_dump(Quiz::lister());

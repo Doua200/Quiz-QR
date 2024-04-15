@@ -2,7 +2,8 @@
     "name": "doua20/quiz-qr",
     "autoload": {
         "psr-4": {
-            "app\\quiz\\model\\": "src/model"
+            "app\\quiz\\model\\": "src/model",
+            "app\\quiz\\controller\\": "src/controller"
         }
     },
     "authors": [
